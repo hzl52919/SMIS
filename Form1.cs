@@ -51,5 +51,11 @@ namespace WindowsFormsApp1
             frmSchool frmSchool = new frmSchool();
             frmSchool.ShowDialog();
         }
+
+        private void 学生信息管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmstudent frmstudent = new frmstudent();
+            frmstudent.ShowDialog();
+        }
     }
 }

@@ -73,13 +73,13 @@ namespace WindowsFormsApp1
             // 用户管理ToolStripMenuItem
             // 
             this.用户管理ToolStripMenuItem.Name = "用户管理ToolStripMenuItem";
-            this.用户管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.用户管理ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.用户管理ToolStripMenuItem.Text = "用户管理";
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -103,13 +103,13 @@ namespace WindowsFormsApp1
             // 专业信息设置ToolStripMenuItem
             // 
             this.专业信息设置ToolStripMenuItem.Name = "专业信息设置ToolStripMenuItem";
-            this.专业信息设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.专业信息设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.专业信息设置ToolStripMenuItem.Text = "专业信息设置";
             // 
             // 班级信息设置ToolStripMenuItem
             // 
             this.班级信息设置ToolStripMenuItem.Name = "班级信息设置ToolStripMenuItem";
-            this.班级信息设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.班级信息设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.班级信息设置ToolStripMenuItem.Text = "班级信息设置";
             // 
             // 学生信息ToolStripMenuItem
@@ -125,13 +125,14 @@ namespace WindowsFormsApp1
             // 学生信息管理ToolStripMenuItem
             // 
             this.学生信息管理ToolStripMenuItem.Name = "学生信息管理ToolStripMenuItem";
-            this.学生信息管理ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.学生信息管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.学生信息管理ToolStripMenuItem.Text = "学生信息管理";
+            this.学生信息管理ToolStripMenuItem.Click += new System.EventHandler(this.学生信息管理ToolStripMenuItem_Click);
             // 
             // 学生信息查询ToolStripMenuItem
             // 
             this.学生信息查询ToolStripMenuItem.Name = "学生信息查询ToolStripMenuItem";
-            this.学生信息查询ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.学生信息查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.学生信息查询ToolStripMenuItem.Text = "学生信息查询";
             // 
             // statusStrip1
