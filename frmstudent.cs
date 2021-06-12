@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace WindowsFormsApp1
 {
@@ -20,8 +21,10 @@ namespace WindowsFormsApp1
        
         public void showlistview()
         {
+            lvstudent.Clear();
             if (comboBox3.Text != "" && comboBox2.Text != "" && comboBox1.Text != "")
             {
+                lvstudent.Columns.Clear();
                 lvstudent.Columns.Add("学号").Width = 160;
                 lvstudent.Columns.Add("姓名").Width = 70;
                 DBUtils dBUtils = new DBUtils();
@@ -41,7 +44,60 @@ namespace WindowsFormsApp1
         }
         private void lvstudent_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lvstudent.SelectedIndices.Count==0)
+            {
+                return;
+            }
+            string id = lvstudent.SelectedItems[0].Text;
+            txt_ID.Enabled = false;
+            DBUtils dBUtils = new DBUtils();
+            SqlConnection sqlConnection = dBUtils.DBConn();
+            String sql = String.Format("select * from student where id='{0}'", id);
+            SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+        
+            String birth = "";
+            String gender = "";
+            String ethricity = "";
+            String politicalstaus = "";
+            String idcard = "";
+            String po = "";
+            String phone = "";
+            String address = "";
+            String name = "";
+            byte[] photo = null;
             
+                birth=reader.GetDateTime(reader.GetOrdinal("birth")).ToString();
+                gender=reader.GetString(reader.GetOrdinal("gender"));
+                ethricity=reader.GetString(reader.GetOrdinal("ethnicity"));
+                politicalstaus=reader.GetString(reader.GetOrdinal("politicalstaus"));
+                idcard=reader.GetString(reader.GetOrdinal("idcard"));
+                po=reader.GetString(reader.GetOrdinal("placeoforigin"));
+                phone=reader.GetString(reader.GetOrdinal("phone"));
+                address=reader.GetString(reader.GetOrdinal("address"));
+                name=reader.GetString(reader.GetOrdinal("studentname"));
+                try
+                {
+                    photo = (byte[])reader.GetValue(reader.GetOrdinal("photo"));
+                }
+                catch
+                {
+                    phone = null;
+                }
+            MemoryStream ms = new MemoryStream(photo);
+            Bitmap bitmap = new Bitmap(ms);
+            txt_address.Text = address;
+            txt_birth.Text = birth;
+            txt_home.Text = po;
+            txt_ID.Text = id;
+            txt_name.Text = name;
+            txt_identID.Text = idcard;
+            txt_nation.Text = ethricity;
+            txt_phone.Text = phone;
+            comb_sex.Text = gender;
+            comb_polit.Text = politicalstaus;
+            pictureBox.Image = bitmap;
+            sqlConnection.Close();
         }
 
         public void bindprm()
@@ -105,5 +161,7 @@ namespace WindowsFormsApp1
         {
             showlistview();
         }
+
+    
     }
 }
