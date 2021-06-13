@@ -82,8 +82,11 @@ namespace WindowsFormsApp1
             this.prgramTableAdapter = new WindowsFormsApp1.DB_SMISDataSet1TableAdapters.PrgramTableAdapter();
             this.classBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_savepic = new System.Windows.Forms.Button();
             this.btn_chpic = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.stu_count = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).BeginInit();
@@ -100,20 +103,22 @@ namespace WindowsFormsApp1
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.stu_count);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.lvstudent);
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Location = new System.Drawing.Point(1, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(243, 365);
+            this.groupBox1.Size = new System.Drawing.Size(253, 388);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "一览表";
             // 
             // lvstudent
             // 
-            this.lvstudent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvstudent.FullRowSelect = true;
             this.lvstudent.HideSelection = false;
-            this.lvstudent.Location = new System.Drawing.Point(3, 17);
+            this.lvstudent.Location = new System.Drawing.Point(0, 32);
             this.lvstudent.Name = "lvstudent";
             this.lvstudent.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lvstudent.Size = new System.Drawing.Size(237, 345);
@@ -140,7 +145,7 @@ namespace WindowsFormsApp1
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(321, 21);
+            this.comboBox1.Location = new System.Drawing.Point(313, 21);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(115, 20);
             this.comboBox1.TabIndex = 4;
@@ -149,7 +154,7 @@ namespace WindowsFormsApp1
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(189, 21);
+            this.comboBox2.Location = new System.Drawing.Point(176, 21);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(77, 20);
             this.comboBox2.TabIndex = 5;
@@ -160,7 +165,7 @@ namespace WindowsFormsApp1
             this.comboBox3.DataSource = this.schoolBindingSource;
             this.comboBox3.DisplayMember = "SchoolName";
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(53, 20);
+            this.comboBox3.Location = new System.Drawing.Point(42, 21);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(83, 20);
             this.comboBox3.TabIndex = 6;
@@ -225,53 +230,58 @@ namespace WindowsFormsApp1
             // 
             // btn_first
             // 
-            this.btn_first.Location = new System.Drawing.Point(21, 24);
-            this.btn_first.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_first.Location = new System.Drawing.Point(21, 19);
+            this.btn_first.Margin = new System.Windows.Forms.Padding(2);
             this.btn_first.Name = "btn_first";
-            this.btn_first.Size = new System.Drawing.Size(56, 18);
+            this.btn_first.Size = new System.Drawing.Size(63, 28);
             this.btn_first.TabIndex = 5;
             this.btn_first.Text = "第一条";
             this.btn_first.UseVisualStyleBackColor = true;
+            this.btn_first.Click += new System.EventHandler(this.btn_first_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(337, 24);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Location = new System.Drawing.Point(336, 19);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(56, 18);
+            this.button5.Size = new System.Drawing.Size(56, 28);
             this.button5.TabIndex = 4;
             this.button5.Text = "关闭";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // btn_last
             // 
-            this.btn_last.Location = new System.Drawing.Point(256, 24);
-            this.btn_last.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_last.Location = new System.Drawing.Point(239, 19);
+            this.btn_last.Margin = new System.Windows.Forms.Padding(2);
             this.btn_last.Name = "btn_last";
-            this.btn_last.Size = new System.Drawing.Size(56, 18);
+            this.btn_last.Size = new System.Drawing.Size(76, 28);
             this.btn_last.TabIndex = 3;
             this.btn_last.Text = "最后一条";
             this.btn_last.UseVisualStyleBackColor = true;
+            this.btn_last.Click += new System.EventHandler(this.btn_last_Click);
             // 
             // btn_next
             // 
-            this.btn_next.Location = new System.Drawing.Point(176, 24);
-            this.btn_next.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_next.Location = new System.Drawing.Point(173, 19);
+            this.btn_next.Margin = new System.Windows.Forms.Padding(2);
             this.btn_next.Name = "btn_next";
-            this.btn_next.Size = new System.Drawing.Size(56, 18);
+            this.btn_next.Size = new System.Drawing.Size(59, 28);
             this.btn_next.TabIndex = 2;
             this.btn_next.Text = "下一条";
             this.btn_next.UseVisualStyleBackColor = true;
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
             // 
             // btn_front
             // 
-            this.btn_front.Location = new System.Drawing.Point(95, 24);
-            this.btn_front.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_front.Location = new System.Drawing.Point(95, 20);
+            this.btn_front.Margin = new System.Windows.Forms.Padding(2);
             this.btn_front.Name = "btn_front";
-            this.btn_front.Size = new System.Drawing.Size(56, 18);
+            this.btn_front.Size = new System.Drawing.Size(65, 27);
             this.btn_front.TabIndex = 1;
             this.btn_front.Text = "上一条";
             this.btn_front.UseVisualStyleBackColor = true;
+            this.btn_front.Click += new System.EventHandler(this.btn_front_Click);
             // 
             // groupBox4
             // 
@@ -289,53 +299,58 @@ namespace WindowsFormsApp1
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(337, 18);
-            this.btn_save.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_save.Location = new System.Drawing.Point(321, 13);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(2);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(56, 18);
+            this.btn_save.Size = new System.Drawing.Size(56, 29);
             this.btn_save.TabIndex = 9;
             this.btn_save.Text = "保存";
             this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(176, 18);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_delete.Location = new System.Drawing.Point(176, 13);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(2);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(56, 18);
+            this.btn_delete.Size = new System.Drawing.Size(56, 29);
             this.btn_delete.TabIndex = 6;
             this.btn_delete.Text = "删除";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(256, 18);
-            this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_cancel.Location = new System.Drawing.Point(249, 13);
+            this.btn_cancel.Margin = new System.Windows.Forms.Padding(2);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(56, 18);
+            this.btn_cancel.Size = new System.Drawing.Size(56, 29);
             this.btn_cancel.TabIndex = 8;
             this.btn_cancel.Text = "取消";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_updata
             // 
-            this.btn_updata.Location = new System.Drawing.Point(95, 18);
-            this.btn_updata.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_updata.Location = new System.Drawing.Point(95, 14);
+            this.btn_updata.Margin = new System.Windows.Forms.Padding(2);
             this.btn_updata.Name = "btn_updata";
-            this.btn_updata.Size = new System.Drawing.Size(56, 18);
+            this.btn_updata.Size = new System.Drawing.Size(56, 27);
             this.btn_updata.TabIndex = 5;
             this.btn_updata.Text = "修改";
             this.btn_updata.UseVisualStyleBackColor = true;
+            this.btn_updata.Click += new System.EventHandler(this.btn_updata_Click);
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(21, 18);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_add.Location = new System.Drawing.Point(21, 15);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(56, 18);
+            this.btn_add.Size = new System.Drawing.Size(56, 25);
             this.btn_add.TabIndex = 7;
             this.btn_add.Text = "添加";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // groupBox5
             // 
@@ -383,7 +398,7 @@ namespace WindowsFormsApp1
             "男",
             "女"});
             this.comb_sex.Location = new System.Drawing.Point(226, 66);
-            this.comb_sex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comb_sex.Margin = new System.Windows.Forms.Padding(2);
             this.comb_sex.Name = "comb_sex";
             this.comb_sex.Size = new System.Drawing.Size(46, 20);
             this.comb_sex.TabIndex = 19;
@@ -397,7 +412,7 @@ namespace WindowsFormsApp1
             "党员",
             "党委"});
             this.comb_polit.Location = new System.Drawing.Point(88, 99);
-            this.comb_polit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comb_polit.Margin = new System.Windows.Forms.Padding(2);
             this.comb_polit.Name = "comb_polit";
             this.comb_polit.Size = new System.Drawing.Size(114, 20);
             this.comb_polit.TabIndex = 18;
@@ -405,7 +420,7 @@ namespace WindowsFormsApp1
             // txt_nation
             // 
             this.txt_nation.Location = new System.Drawing.Point(336, 65);
-            this.txt_nation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_nation.Margin = new System.Windows.Forms.Padding(2);
             this.txt_nation.Name = "txt_nation";
             this.txt_nation.Size = new System.Drawing.Size(76, 21);
             this.txt_nation.TabIndex = 17;
@@ -413,7 +428,7 @@ namespace WindowsFormsApp1
             // txt_ID
             // 
             this.txt_ID.Location = new System.Drawing.Point(88, 26);
-            this.txt_ID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_ID.Margin = new System.Windows.Forms.Padding(2);
             this.txt_ID.Name = "txt_ID";
             this.txt_ID.Size = new System.Drawing.Size(116, 21);
             this.txt_ID.TabIndex = 16;
@@ -421,7 +436,7 @@ namespace WindowsFormsApp1
             // txt_name
             // 
             this.txt_name.Location = new System.Drawing.Point(276, 26);
-            this.txt_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_name.Margin = new System.Windows.Forms.Padding(2);
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(137, 21);
             this.txt_name.TabIndex = 15;
@@ -429,7 +444,7 @@ namespace WindowsFormsApp1
             // txt_birth
             // 
             this.txt_birth.Location = new System.Drawing.Point(88, 66);
-            this.txt_birth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_birth.Margin = new System.Windows.Forms.Padding(2);
             this.txt_birth.Name = "txt_birth";
             this.txt_birth.Size = new System.Drawing.Size(72, 21);
             this.txt_birth.TabIndex = 14;
@@ -437,7 +452,7 @@ namespace WindowsFormsApp1
             // txt_identID
             // 
             this.txt_identID.Location = new System.Drawing.Point(275, 99);
-            this.txt_identID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_identID.Margin = new System.Windows.Forms.Padding(2);
             this.txt_identID.Name = "txt_identID";
             this.txt_identID.Size = new System.Drawing.Size(137, 21);
             this.txt_identID.TabIndex = 13;
@@ -445,7 +460,7 @@ namespace WindowsFormsApp1
             // txt_home
             // 
             this.txt_home.Location = new System.Drawing.Point(88, 135);
-            this.txt_home.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_home.Margin = new System.Windows.Forms.Padding(2);
             this.txt_home.Name = "txt_home";
             this.txt_home.Size = new System.Drawing.Size(120, 21);
             this.txt_home.TabIndex = 12;
@@ -453,7 +468,7 @@ namespace WindowsFormsApp1
             // txt_phone
             // 
             this.txt_phone.Location = new System.Drawing.Point(275, 135);
-            this.txt_phone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_phone.Margin = new System.Windows.Forms.Padding(2);
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(137, 21);
             this.txt_phone.TabIndex = 11;
@@ -461,7 +476,7 @@ namespace WindowsFormsApp1
             // txt_address
             // 
             this.txt_address.Location = new System.Drawing.Point(88, 166);
-            this.txt_address.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_address.Margin = new System.Windows.Forms.Padding(2);
             this.txt_address.Name = "txt_address";
             this.txt_address.Size = new System.Drawing.Size(325, 21);
             this.txt_address.TabIndex = 10;
@@ -586,39 +601,68 @@ namespace WindowsFormsApp1
             // pictureBox
             // 
             this.pictureBox.Location = new System.Drawing.Point(718, 18);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(218, 314);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             // 
-            // button1
+            // btn_savepic
             // 
-            this.button1.Location = new System.Drawing.Point(844, 352);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 36);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "清除";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_savepic.Location = new System.Drawing.Point(844, 352);
+            this.btn_savepic.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_savepic.Name = "btn_savepic";
+            this.btn_savepic.Size = new System.Drawing.Size(73, 36);
+            this.btn_savepic.TabIndex = 2;
+            this.btn_savepic.Text = "保存";
+            this.btn_savepic.UseVisualStyleBackColor = true;
+            this.btn_savepic.Click += new System.EventHandler(this.btn_savepic_Click);
             // 
             // btn_chpic
             // 
             this.btn_chpic.Location = new System.Drawing.Point(743, 352);
-            this.btn_chpic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_chpic.Margin = new System.Windows.Forms.Padding(2);
             this.btn_chpic.Name = "btn_chpic";
             this.btn_chpic.Size = new System.Drawing.Size(76, 36);
             this.btn_chpic.TabIndex = 3;
             this.btn_chpic.Text = "选择文件";
             this.btn_chpic.UseVisualStyleBackColor = true;
+            this.btn_chpic.Click += new System.EventHandler(this.btn_chpic_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(43, 17);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 12);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "学生人数：";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(114, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(0, 12);
+            this.label15.TabIndex = 2;
+            // 
+            // stu_count
+            // 
+            this.stu_count.AutoSize = true;
+            this.stu_count.Location = new System.Drawing.Point(103, 18);
+            this.stu_count.Name = "stu_count";
+            this.stu_count.Size = new System.Drawing.Size(11, 12);
+            this.stu_count.TabIndex = 3;
+            this.stu_count.Text = "0";
             // 
             // frmstudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 404);
+            this.ClientSize = new System.Drawing.Size(950, 406);
             this.Controls.Add(this.btn_chpic);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_savepic);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -629,6 +673,7 @@ namespace WindowsFormsApp1
             this.Text = "frmstudent";
             this.Load += new System.EventHandler(this.frmstudent_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).EndInit();
@@ -700,7 +745,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btn_first;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_savepic;
         private System.Windows.Forms.Button btn_chpic;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label stu_count;
     }
 }
