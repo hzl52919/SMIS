@@ -105,12 +105,14 @@ namespace WindowsFormsApp1
             this.专业信息设置ToolStripMenuItem.Name = "专业信息设置ToolStripMenuItem";
             this.专业信息设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.专业信息设置ToolStripMenuItem.Text = "专业信息设置";
+            this.专业信息设置ToolStripMenuItem.Click += new System.EventHandler(this.专业信息设置ToolStripMenuItem_Click);
             // 
             // 班级信息设置ToolStripMenuItem
             // 
             this.班级信息设置ToolStripMenuItem.Name = "班级信息设置ToolStripMenuItem";
             this.班级信息设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.班级信息设置ToolStripMenuItem.Text = "班级信息设置";
+            this.班级信息设置ToolStripMenuItem.Click += new System.EventHandler(this.班级信息设置ToolStripMenuItem_Click);
             // 
             // 学生信息ToolStripMenuItem
             // 
@@ -125,15 +127,16 @@ namespace WindowsFormsApp1
             // 学生信息管理ToolStripMenuItem
             // 
             this.学生信息管理ToolStripMenuItem.Name = "学生信息管理ToolStripMenuItem";
-            this.学生信息管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.学生信息管理ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.学生信息管理ToolStripMenuItem.Text = "学生信息管理";
             this.学生信息管理ToolStripMenuItem.Click += new System.EventHandler(this.学生信息管理ToolStripMenuItem_Click);
             // 
             // 学生信息查询ToolStripMenuItem
             // 
             this.学生信息查询ToolStripMenuItem.Name = "学生信息查询ToolStripMenuItem";
-            this.学生信息查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.学生信息查询ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.学生信息查询ToolStripMenuItem.Text = "学生信息查询";
+            this.学生信息查询ToolStripMenuItem.Click += new System.EventHandler(this.学生信息查询ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 

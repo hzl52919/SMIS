@@ -437,11 +437,16 @@ namespace WindowsFormsApp1
 
         private void btn_updata_Click(object sender, EventArgs e)
         {
+            if (lvstudent.SelectedIndices.Count==0)
+            {
+                MessageBox.Show("请先选择一个学生");
+                return;
+            }
             DBUtils dBUtils = new DBUtils();
             SqlConnection sqlConnection = dBUtils.DBConn();
             String sql = String.Format("update student set studentname=" +
-                "'{0}',birth='{1}',gender='{2}',ethnicity='{3}',politicalstaus='{4}',idcard='{5}',placeoforigin='{6}',address='{7}',classid='{9}' where id='{10}'",
-                 txt_name.Text, txt_birth.Text, comb_sex.Text, txt_nation.Text, comb_polit.Text, txt_identID.Text, txt_home.Text, txt_phone.Text, txt_address.Text,txt_ID.Text);
+                "'{0}',birth='{1}',gender='{2}',ethnicity='{3}',politicalstaus='{4}',idcard='{5}',placeoforigin='{6}',address='{7}',phone='{8}' where id='{9}'",
+                 txt_name.Text, txt_birth.Text, comb_sex.Text, txt_nation.Text, comb_polit.Text, txt_identID.Text, txt_home.Text, txt_address.Text, txt_phone.Text,txt_ID.Text);
 
             SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
             int v = sqlCommand.ExecuteNonQuery();

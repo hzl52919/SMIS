@@ -57,5 +57,23 @@ namespace WindowsFormsApp1
             frmstudent frmstudent = new frmstudent();
             frmstudent.ShowDialog();
         }
+
+        private void 学生信息查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            studentSelect studentSelect = new studentSelect();
+            studentSelect.ShowDialog();
+        }
+
+        private void 班级信息设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            classForm classForm = new classForm();
+            classForm.ShowDialog();
+        }
+
+        private void 专业信息设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            majorForm majorForm = new majorForm();
+            majorForm.ShowDialog();
+        }
     }
 }

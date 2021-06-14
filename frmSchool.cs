@@ -126,8 +126,6 @@ namespace WindowsFormsApp1
             sqlDataAdapter.Fill(ds);
             sqlConnection.Close();
             IsSchool.DataSource = ds.Tables[0];
-
-
         }
 
         private void btnrefresh_Click(object sender, EventArgs e)
